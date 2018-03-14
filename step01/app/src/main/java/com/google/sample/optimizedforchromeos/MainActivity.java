@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText messageField = findViewById(R.id.edit_message);
 
-        final TextView messageCounter = findViewById(R.id.text_messages_sent);
-        final TextView imageClickCounter = findViewById(R.id.text_dino_clicks);
+        messageCounterText = findViewById(R.id.text_messages_sent);
+        clickCounterText = findViewById(R.id.text_dino_clicks);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dinoImage1.setOnClickListener(new ImageOnClickListener(imageClickCounter));
-        dinoImage2.setOnClickListener(new ImageOnClickListener(imageClickCounter));
-        dinoImage3.setOnClickListener(new ImageOnClickListener(imageClickCounter));
-        dinoImage4.setOnClickListener(new ImageOnClickListener(imageClickCounter));
+        dinoImage1.setOnClickListener(new ImageOnClickListener(clickCounterText));
+        dinoImage2.setOnClickListener(new ImageOnClickListener(clickCounterText));
+        dinoImage3.setOnClickListener(new ImageOnClickListener(clickCounterText));
+        dinoImage4.setOnClickListener(new ImageOnClickListener(clickCounterText));
 
         messageField.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent keyEvent) {
