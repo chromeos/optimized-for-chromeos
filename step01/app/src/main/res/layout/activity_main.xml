@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2018 The Android Open Source Project
+  ~ Copyright 2018 Google LLC
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Messages Sent:"
+        android:text="@string/label_messages_sent"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Dinosaurs Clicked:"
+        android:text="@string/label_dinos_clicked"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_messages_sent_label" />
@@ -74,9 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Secret message"
-        android:nextFocusRight="@+id/button_send"
-        android:nextFocusForward="@+id/button_send"
+        android:hint="@string/hint_secret_message"
         android:inputType="textShortMessage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dino_clicks_label" />
@@ -87,10 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:focusable="true"
-        android:nextFocusLeft="@+id/edit_message"
-        android:nextFocusForward="@+id/image_dino1"
-        android:text="Send"
+        android:focusable="false"
+        android:text="@string/button_send"
         app:layout_constraintStart_toEndOf="@+id/edit_message"
         app:layout_constraintTop_toBottomOf="@+id/text_dino_clicks" />
 
@@ -99,7 +95,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:focusable="true"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/image_dino3"
         app:layout_constraintEnd_toStartOf="@+id/image_dino2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -114,12 +110,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:focusable="true"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@+id/image_dino4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/image_dino1"
         app:layout_constraintTop_toBottomOf="@+id/edit_message"
-        app:layout_constraintBottom_toTopOf="@+id/image_dino4"
         app:srcCompat="@drawable/dino2" />
 
     <ImageView
@@ -128,7 +124,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:focusable="true"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/text_drag"
         app:layout_constraintEnd_toStartOf="@+id/image_dino4"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +137,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:focusable="true"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/text_drop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_dino3"
@@ -150,29 +146,36 @@
 
     <TextView
         android:id="@+id/text_drag"
-        android:layout_width="180dp"
-        android:layout_height="214dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Drag Me!"
+        android:text="@string/drag_drag_item"
         android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_drop"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_dino3" />
 
     <TextView
         android:id="@+id/text_drop"
-        android:layout_width="180dp"
-        android:layout_height="214dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Drop Things Here!"
+        android:text="@string/drag_drop_target"
         android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/text_drag"
         app:layout_constraintTop_toBottomOf="@+id/image_dino4" />
 

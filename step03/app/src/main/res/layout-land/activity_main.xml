@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Messages Sent:"
+        android:text="@string/label_messages_sent"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Dinosaurs Clicked:"
+        android:text="@string/label_dinos_clicked"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_messages_sent_label" />
@@ -74,7 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Secret message"
+        android:hint="@string/hint_secret_message"
         android:nextFocusRight="@+id/button_send"
         android:nextFocusForward="@+id/button_send"
         android:inputType="textShortMessage"
@@ -91,7 +91,7 @@
         android:focusable="true"
         android:nextFocusLeft="@+id/edit_message"
         android:nextFocusForward="@+id/image_dino1"
-        android:text="Send"
+        android:text="@string/button_send"
         app:layout_constraintEnd_toStartOf="@+id/guide_horizontal_center"
         app:layout_constraintStart_toEndOf="@+id/edit_message"
         app:layout_constraintTop_toBottomOf="@+id/text_dino_clicks" />
@@ -158,8 +158,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Drag Me!"
+        android:text="@string/drag_drag_item"
         android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/text_drop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guide_horizontal_center"
@@ -173,12 +174,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="center"
-        android:text="Drop Things Here!"
+        android:text="@string/drag_drop_target"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/text_drag"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guide_horizontal_center" />
+        app:layout_constraintStart_toStartOf="@+id/guide_horizontal_center"
+        app:layout_constraintTop_toBottomOf="@id/text_drag" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guide_horizontal_center"

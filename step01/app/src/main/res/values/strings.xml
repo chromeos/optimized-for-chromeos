@@ -1,6 +1,6 @@
 <resources>
     <!--
-  ~ Copyright (c) 2018 The Android Open Source Project
+  ~ Copyright 2018 Google LLC
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,4 +15,16 @@
   ~ limitations under the License.
   -->
     <string name="app_name">Optimized For ChromeOS</string>
+    <string name="name_dino_1">Hadrosaur</string>
+    <string name="name_dino_2">Triceratops</string>
+    <string name="name_dino_3">Nodosaur</string>
+    <string name="name_dino_4">Afrovenator</string>
+    <string name="menu_share">Share with bestie</string>
+    <string name="menu_shared_message">Shared dino with bestie</string>
+    <string name="label_messages_sent">Messages Sent:</string>
+    <string name="label_dinos_clicked">Dinosaurs Clicked:</string>
+    <string name="hint_secret_message">Secret message</string>
+    <string name="button_send">Send</string>
+    <string name="drag_drag_item">Drag Me!</string>
+    <string name="drag_drop_target">Drop Things Here!</string>
 </resources>

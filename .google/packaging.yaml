@@ -24,7 +24,7 @@ categories:   [Chrome OS]
 languages:    [Java]
 solutions:    [Chrome OS]
 # May be omitted if unpublished
-#github:       googlesamples/android-chromeos-draganddrop
+github:       googlecodelabs/optimized-for-chromeos
 # Values: BEGINNER | INTERMEDIATE | ADVANCED | EXPERT
 level:        INTERMEDIATE
 # Dimensions: 512x512, PNG format
@@ -33,8 +33,15 @@ level:        INTERMEDIATE
 # names that are unique for the product in question. Examples:
 #
 # Android -    android:<class-name>
-#apiRefs:
-#    - android.view.DragEvent
+apiRefs:
+    - android.view.OnKeyListener
+    - android.view.KeyEvent
+    - android.view.OnContextClickListener
+    - android.support.v7.widget.TooltipCompat
+    - android.view.OnHoverListener
+    - android.view.DragEvent
+    - android.arch.lifecycle.ViewModel
+    - android.arch.lifecycle.LiveData
 # Default: apache2. May be omitted for most samples.
 # Alternatives: apache2-android (for AOSP)
 license: apache2

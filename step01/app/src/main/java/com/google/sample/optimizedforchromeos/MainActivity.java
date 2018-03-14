@@ -25,6 +25,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int mMessagesSent;
+    private int mDinosClicked;
+
+    private TextView messageCounterText;
+    private TextView clickCounterText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageCounter.setText(incrementStringInteger(messageCounter.getText().toString()));
+                mMessagesSent++;
+                messageCounterText.setText(Integer.toString(mMessagesSent));
                 messageField.getText().clear();
             }
         });
@@ -76,20 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            mClickCounter.setText(incrementStringInteger(mClickCounter.getText().toString()));
+            mDinosClicked++;
+            mClickCounter.setText(Integer.toString(mDinosClicked));
         }
-    }
-
-    static String incrementStringInteger(String oldCount) {
-        Integer count;
-
-        try {
-            count = Integer.parseInt(oldCount);
-        } catch (NumberFormatException e) {
-            return "-1";
-        }
-
-        count++;
-        return count.toString();
     }
 }

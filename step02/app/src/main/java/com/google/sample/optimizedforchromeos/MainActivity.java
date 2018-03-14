@@ -26,6 +26,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int mMessagesSent;
+    private int mDinosClicked;
+
+    private TextView messageCounterText;
+    private TextView clickCounterText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,17 +48,12 @@ public class MainActivity extends AppCompatActivity {
         final TextView messageCounter = findViewById(R.id.text_messages_sent);
         final TextView imageClickCounter = findViewById(R.id.text_dino_clicks);
 
-        //Adjust image highlighting
-        dinoImage1.setBackgroundResource(R.drawable.box_border);
-        dinoImage2.setBackgroundResource(R.drawable.box_border);
-        dinoImage3.setBackgroundResource(R.drawable.box_border);
-        dinoImage4.setBackgroundResource(R.drawable.box_border);
-
         // Set up Click Listeners
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageCounter.setText(incrementStringInteger(messageCounter.getText().toString()));
+                mMessagesSent++;
+                messageCounterText.setText(Integer.toString(mMessagesSent));
                 messageField.getText().clear();
             }
         });
@@ -84,20 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            mClickCounter.setText(incrementStringInteger(mClickCounter.getText().toString()));
+            mDinosClicked++;
+            mClickCounter.setText(Integer.toString(mDinosClicked));
         }
-    }
-
-    static String incrementStringInteger(String oldCount) {
-        Integer count;
-
-        try {
-            count = Integer.parseInt(oldCount);
-        } catch (NumberFormatException e) {
-            return "-1";
-        }
-
-        count++;
-        return count.toString();
     }
 }
