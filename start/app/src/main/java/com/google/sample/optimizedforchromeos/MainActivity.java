@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button sendButton = findViewById(R.id.button_send);
+        final Button sendButton = findViewById(R.id.button_send);
         ImageView dinoImage1 = findViewById(R.id.image_dino1);
         ImageView dinoImage2 = findViewById(R.id.image_dino2);
         ImageView dinoImage3 = findViewById(R.id.image_dino3);
