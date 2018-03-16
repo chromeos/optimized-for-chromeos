@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         messageCounterText = findViewById(R.id.text_messages_sent);
         clickCounterText = findViewById(R.id.text_dino_clicks);
 
+        final TextView dragText = findViewById(R.id.text_drag);
+        final TextView dropText = findViewById(R.id.text_drop);
+
         // Set up Click Listeners
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
