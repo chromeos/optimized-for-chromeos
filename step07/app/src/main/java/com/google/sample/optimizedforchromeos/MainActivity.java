@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int UNDO_MESSAGE_SENT = 1;
     private static final int UNDO_DINO_CLICKED = 2;
-    private ArrayDeque<Integer> undoQueue = new ArrayDeque<Integer>();
-    private ArrayDeque<Integer> redoQueue = new ArrayDeque<Integer>();
+    private ArrayDeque<Integer> undoStack = new ArrayDeque<Integer>();
+    private ArrayDeque<Integer> redoStack = new ArrayDeque<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 mMessagesSent++;
                 messageCounterText.setText(Integer.toString(mMessagesSent));
                 messageField.getText().clear();
-                undoQueue.push(UNDO_MESSAGE_SENT);
-                redoQueue.clear();
+                undoStack.push(UNDO_MESSAGE_SENT);
+                redoStack.clear();
             }
         });
 
@@ -184,8 +184,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             mDinosClicked++;
             mClickCounter.setText(Integer.toString(mDinosClicked));
-            undoQueue.push(UNDO_DINO_CLICKED);
-            redoQueue.clear();
+            undoStack.push(UNDO_DINO_CLICKED);
+            redoStack.clear();
         }
     }
 
@@ -194,9 +194,9 @@ public class MainActivity extends AppCompatActivity {
         //Ctrl-z == Undo
         if (event.getKeyCode() == KeyEvent.KEYCODE_Z
                 && event.hasModifiers(KeyEvent.META_CTRL_ON)) {
-            Integer lastAction = undoQueue.poll();
+            Integer lastAction = undoStack.poll();
             if (null != lastAction) {
-                redoQueue.push(lastAction);
+                redoStack.push(lastAction);
 
                 switch (lastAction) {
                     case UNDO_MESSAGE_SENT:
@@ -221,9 +221,9 @@ public class MainActivity extends AppCompatActivity {
         //Ctrl-Shift-z == Redo
         if ((event.getKeyCode() == KeyEvent.KEYCODE_Z)
                 && event.hasModifiers(KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON)) {
-            Integer prevAction = redoQueue.poll();
+            Integer prevAction = redoStack.poll();
             if (null != prevAction) {
-                undoQueue.push(prevAction);
+                undoStack.push(prevAction);
 
                 switch (prevAction) {
                     case UNDO_MESSAGE_SENT:

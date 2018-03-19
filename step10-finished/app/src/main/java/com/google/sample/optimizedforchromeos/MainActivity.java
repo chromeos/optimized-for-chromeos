@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int UNDO_MESSAGE_SENT = 1;
     private static final int UNDO_DINO_CLICKED = 2;
-    private ArrayDeque<Integer> undoQueue;
-    private ArrayDeque<Integer> redoQueue;
+    private ArrayDeque<Integer> undoStack;
+    private ArrayDeque<Integer> redoStack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         //Get the persistent ViewModel
         mDinoModel = ViewModelProviders.of(this).get(DinoViewModel.class);
 
-        //Restore our queues
-        undoQueue = mDinoModel.getUndoQueue();
-        redoQueue = mDinoModel.getRedoQueue();
+        //Restore our stacks
+        undoStack = mDinoModel.getUndoStack();
+        redoStack = mDinoModel.getRedoStack();
 
         final Button sendButton = findViewById(R.id.button_send);
         ImageView dinoImage1 = findViewById(R.id.image_dino1);
@@ -136,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mDinoModel.setMessagesSent(mDinoModel.getMessagesSent().getValue() + 1);
                 messageField.getText().clear();
-                undoQueue.push(UNDO_MESSAGE_SENT);
-                redoQueue.clear();
+                undoStack.push(UNDO_MESSAGE_SENT);
+                redoStack.clear();
             }
         });
 
@@ -219,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             mDinoModel.setDinosClicked(mDinoModel.getDinosClicked().getValue() + 1);
-            undoQueue.push(UNDO_DINO_CLICKED);
-            redoQueue.clear();
+            undoStack.push(UNDO_DINO_CLICKED);
+            redoStack.clear();
         }
     }
 
@@ -229,9 +229,9 @@ public class MainActivity extends AppCompatActivity {
         //Ctrl-z == Undo
         if (event.getKeyCode() == KeyEvent.KEYCODE_Z
                 && event.hasModifiers(KeyEvent.META_CTRL_ON)) {
-            Integer lastAction = undoQueue.poll();
+            Integer lastAction = undoStack.poll();
             if (null != lastAction) {
-                redoQueue.push(lastAction);
+                redoStack.push(lastAction);
 
                 switch (lastAction) {
                     case UNDO_MESSAGE_SENT:
@@ -254,9 +254,9 @@ public class MainActivity extends AppCompatActivity {
         //Ctrl-Shift-z == Redo
         if ((event.getKeyCode() == KeyEvent.KEYCODE_Z)
                 && event.hasModifiers(KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON)) {
-            Integer prevAction = redoQueue.poll();
+            Integer prevAction = redoStack.poll();
             if (null != prevAction) {
-                undoQueue.push(prevAction);
+                undoStack.push(prevAction);
 
                 switch (prevAction) {
                     case UNDO_MESSAGE_SENT:

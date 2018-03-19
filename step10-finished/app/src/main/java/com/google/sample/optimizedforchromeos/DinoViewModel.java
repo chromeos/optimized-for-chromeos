@@ -28,21 +28,21 @@ public class DinoViewModel extends ViewModel {
     private MutableLiveData<Integer> dinosClicked;
     private MutableLiveData<String> dropText;
 
-    private ArrayDeque<Integer> undoQueue;
-    private ArrayDeque<Integer> redoQueue;
+    private ArrayDeque<Integer> undoStack;
+    private ArrayDeque<Integer> redoStack;
 
-    public ArrayDeque<Integer> getUndoQueue() {
-        if (this.undoQueue == null) {
-            this.undoQueue = new ArrayDeque<Integer>();
+    public ArrayDeque<Integer> getUndoStack() {
+        if (this.undoStack == null) {
+            this.undoStack = new ArrayDeque<Integer>();
         }
-        return undoQueue;
+        return undoStack;
     }
 
-    public ArrayDeque<Integer> getRedoQueue() {
-        if (this.redoQueue == null) {
-            this.redoQueue = new ArrayDeque<Integer>();
+    public ArrayDeque<Integer> getRedoStack() {
+        if (this.redoStack == null) {
+            this.redoStack = new ArrayDeque<Integer>();
         }
-        return redoQueue;
+        return redoStack;
     }
 
     public MutableLiveData<Integer> setDinosClicked(int newNumClicks) {
