@@ -1,9 +1,22 @@
-# Optimized for Chrome OS
+# Optimizing your Android App for Chrome OS
 
 ## This is not an official Google product
 
-Source code for a codelab demostrating how to optimize an
-Android app for Chrome OS.
+With the ability to run Android on Chromebooks, a huge 
+ecosystem of applications and vast new functionality 
+is now available to users. While this is great news 
+for developers, certain optimizations are required 
+to meet usability expectations and to make for an 
+excellent user experience. 
+This code lab [link coming soon] will take you through 
+the most common of these optimizations.
+
+This repository contains the source code for the 
+codelab broken up into steps.
+
+## Step 3
+
+Selected item highlighting code has been added.
 
 ***
 
