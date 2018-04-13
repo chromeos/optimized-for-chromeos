@@ -24,7 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
+            <!-- The following flag removes the Back button from the window control bar -->
+            <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
