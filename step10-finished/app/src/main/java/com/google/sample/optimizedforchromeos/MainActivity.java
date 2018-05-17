@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         final Observer<Integer> messageObserver = new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable final Integer newCount) {
-                messageCounterText.setText(Integer.toString(mDinoModel.getMessagesSent().getValue()));
+                messageCounterText.setText(Integer.toString(newCount));
             }
         };
         mDinoModel.getMessagesSent().observe(this, messageObserver);
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         final Observer<Integer> dinoClickObserver = new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable final Integer newCount) {
-                clickCounterText.setText(Integer.toString(mDinoModel.getDinosClicked().getValue()));
+                clickCounterText.setText(Integer.toString(newCount));
             }
         };
         mDinoModel.getDinosClicked().observe(this, dinoClickObserver);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         final Observer<String> dropTargetObserver = new Observer<String>() {
             @Override
             public void onChanged(@Nullable final String newString) {
-                dropText.setText(mDinoModel.getDropText().getValue());
+                dropText.setText(newString);
             }
         };
         mDinoModel.getDropText().observe(this, dropTargetObserver);
@@ -413,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
             View.DragShadowBuilder dragShadow = new View.DragShadowBuilder(v);
 
             // Starts the drag, note: global flag allows for cross-application drag
-            v.startDragAndDrop(dragData, dragShadow, null, DRAG_FLAG_GLOBAL);
+            v.startDragAndDrop(dragData, dragShadow, null, View.DRAG_FLAG_GLOBAL);
 
             return false;
         }

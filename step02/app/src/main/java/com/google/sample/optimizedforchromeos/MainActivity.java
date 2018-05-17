@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
         dinoImage3.setOnClickListener(new ImageOnClickListener(clickCounterText));
         dinoImage4.setOnClickListener(new ImageOnClickListener(clickCounterText));
 
+        TypedValue highlightValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.selectableItemBackground, highlightValue, true);
+
+        dinoImage1.setBackgroundResource(highlightValue.resourceId);
+        dinoImage2.setBackgroundResource(highlightValue.resourceId);
+        dinoImage3.setBackgroundResource(highlightValue.resourceId);
+        dinoImage4.setBackgroundResource(highlightValue.resourceId);
+
         messageField.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent keyEvent) {
                 if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) &&
