@@ -9,12 +9,12 @@ for developers, certain optimizations are required
 to meet usability expectations and to make for an 
 excellent user experience. 
 
-This code lab [https://codelabs.developers.google.com/codelabs/optimized-for-chromeos/index.html] will take you through 
+This [code lab](https://codelabs.developers.google.com/codelabs/optimized-for-chromeos/index.html) will take you through 
 the most common of these optimizations.
 
 This repository contains the source code for the 
-codelab in two different modules. *complete* contains
-the completed codelab, *start* is the base project
+codelab in two different modules. **complete** contains
+the completed codelab, **start** is the base project
 with each step's code commented out for reference.
 
 ***
