@@ -8,6 +8,7 @@ is now available to users. While this is great news
 for developers, certain optimizations are required 
 to meet usability expectations and to make for an 
 excellent user experience. 
+
 This code lab [link coming soon] will take you through 
 the most common of these optimizations.
 
@@ -16,7 +17,7 @@ codelab broken up into steps.
 
 ***
 
-Copyright 2018 Google LLC
+Copyright 2019 Google LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
