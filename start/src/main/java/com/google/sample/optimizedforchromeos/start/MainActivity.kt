@@ -273,7 +273,7 @@ class MainActivity : AppCompatActivity() {
             // STEP 10 - State - 4 of 5
             // Note: delete dinosClicked and clickCounter lines above
             /*
-            dinoModel.setDinosClicked(dinoModel.getDinosClicked().value + 1)
+            dinoModel.setDinosClicked(dinoModel.getDinosClickedInt() + 1)
             */
             /////////////////////////////////////////////////////
         }
@@ -528,11 +528,11 @@ class MainActivity : AppCompatActivity() {
 
                 when (lastAction) {
                     UNDO_MESSAGE_SENT -> {
-                        dinoModel.setMessagesSent(dinoModel.getMessagesSent().value - 1)
+                        dinoModel.setMessagesSent(dinoModel.getMessagesSentInt - 1)
                     }
 
                     UNDO_DINO_CLICKED -> {
-                        dinoModel.setDinosClicked(dinoModel.getDinosClicked().value - 1)
+                        dinoModel.setDinosClicked(dinoModel.getDinosClickedInt - 1)
                     }
 
                     else -> Log.d("OptimizedChromeOS", "Error on Ctrl-z: Unknown Action")
@@ -551,11 +551,11 @@ class MainActivity : AppCompatActivity() {
 
                 when (prevAction) {
                     UNDO_MESSAGE_SENT -> {
-                        dinoModel.setMessagesSent(dinoModel.getMessagesSent().value + 1)
+                        dinoModel.setMessagesSent(dinoModel.getMessagesSentInt() + 1)
                     }
 
                     UNDO_DINO_CLICKED -> {
-                        dinoModel.setDinosClicked(dinoModel.getDinosClicked().value + 1)
+                        dinoModel.setDinosClicked(dinoModel.getDinosClickedInt() + 1)
                     }
 
                     else -> Log.d("OptimizedChromeOS", "Error on Ctrl-Shift-z: Unknown Action")
