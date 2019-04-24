@@ -177,7 +177,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    internal inner class SendButtonOnClickListener(private val sentCounter: TextView) : View.OnClickListener {
+    internal inner class SendButtonOnClickListener(private val sentCounter: TextView
+    ) : View.OnClickListener {
         override fun onClick(v: View?) {
             dinoModel.setMessagesSent(dinoModel.getMessagesSentInt() + 1)
             edit_message.text.clear()
@@ -186,17 +187,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal inner class ImageOnClickListener(private val clickCounter: TextView) : View.OnClickListener {
+    internal inner class ImageOnClickListener(private val clickCounter: TextView
+    ) : View.OnClickListener {
         override fun onClick(v: View) {
             dinoModel.setDinosClicked(dinoModel.getDinosClickedInt() + 1)
-
             undoStack.push(UNDO_DINO_CLICKED)
             redoStack.clear()
-
         }
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater = menuInflater
         inflater.inflate(R.menu.context_menu, menu)
@@ -228,7 +232,7 @@ class MainActivity : AppCompatActivity() {
                         return true
                     }
 
-                    // If the dragged item is of an unrecognized type, indicate this is not a valid target
+                    // If dragged item is of an unrecognized type, indicate that not a valid target
                     return false
                 }
 
@@ -267,16 +271,18 @@ class MainActivity : AppCompatActivity() {
                         val contentUri = item.uri
                         val parcelFileDescriptor: ParcelFileDescriptor?
                         try {
-                            parcelFileDescriptor = contentResolver.openFileDescriptor(contentUri, "r")
+                            parcelFileDescriptor =
+                                contentResolver.openFileDescriptor(contentUri, "r")
                         } catch (e: FileNotFoundException) {
                             e.printStackTrace()
-                            Log.e("OptimizedChromeOS", "Error receiving file: File not found.")
+                            Log.e("OptimizedChromeOS", "Error on drop: File not found.")
                             return false
                         }
 
                         if (parcelFileDescriptor == null) {
                             textTarget.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
-                            dinoModel.setDropText("Error: could not load file: " + contentUri.toString())
+                            dinoModel.setDropText("Error: could not load file: " +
+                                    contentUri.toString())
                             return false
                         }
 
@@ -298,7 +304,11 @@ class MainActivity : AppCompatActivity() {
                         val contents = String(bytes)
 
                         val CHARS_TO_READ = 200
-                        val content_length = if (contents.length > CHARS_TO_READ) CHARS_TO_READ else 0
+                        val content_length =
+                            if (contents.length > CHARS_TO_READ)
+                                CHARS_TO_READ
+                            else
+                                0
 
                         textTarget.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
                         dinoModel.setDropText(contents.substring(0, content_length))
@@ -309,7 +319,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    Log.d("OptimizedChromeOS", "Unknown action type received by DropTargetListener.")
+                    Log.d("OptimizedChromeOS",
+                        "Unknown action type received by DropTargetListener.")
                     return false
                 }
             }
@@ -321,12 +332,12 @@ class MainActivity : AppCompatActivity() {
             val thisTextView = v as TextView
             val dragContent = "Dragged Text: " + thisTextView.text
 
-            //Set the drag content and type
+            // Set the drag content and type
             val item = ClipData.Item(dragContent)
             val dragData = ClipData(dragContent, arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN), item)
 
-            //Set the visual look of the dragged object
-            //Can be extended and customized. We use the default here.
+            // Set the visual look of the dragged object
+            // Can be extended and customized. We use the default here.
             val dragShadow = View.DragShadowBuilder(v)
 
             // Starts the drag, note: global flag allows for cross-application drag

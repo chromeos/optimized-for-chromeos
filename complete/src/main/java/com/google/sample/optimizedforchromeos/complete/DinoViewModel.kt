@@ -73,4 +73,3 @@ class DinoViewModel : ViewModel() {
         return dropText
     }
 }
-

@@ -99,7 +99,8 @@ class MainActivity : AppCompatActivity() {
         /////////////////////////////////////////////////////
         // STEP 3 - Highlight borders - 1 of 3
         // Replace the background resource lines from step 2 with the following.
-        // Be sure to uncomment the box_border.xml and style.xml code in the drawable and values directories.
+        // Be sure to uncomment the box_border.xml and style.xml code in the drawable
+        // and values directories.
         /*
         // Adjust image highlighting
         image_dino_1.setBackgroundResource(R.drawable.box_border)
@@ -224,7 +225,8 @@ class MainActivity : AppCompatActivity() {
         /////////////////////////////////////////////////////
     }
 
-    internal inner class SendButtonOnClickListener(private val sentCounter: TextView) : View.OnClickListener {
+    internal inner class SendButtonOnClickListener(private val sentCounter: TextView
+    ) : View.OnClickListener {
         override fun onClick(v: View?) {
             messagesSent++ // Delete me in STEP 10
             sentCounter.text = Integer.toString(messagesSent) // Delete me in STEP 10
@@ -250,7 +252,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal inner class ImageOnClickListener(private val clickCounter: TextView) : View.OnClickListener {
+    internal inner class ImageOnClickListener(private val clickCounter: TextView
+    ) : View.OnClickListener {
         override fun onClick(v: View) {
             dinosClicked++ // Delete me in STEP 10
             clickCounter.text = Integer.toString(dinosClicked) // Delete me in STEP 10
@@ -338,7 +341,11 @@ class MainActivity : AppCompatActivity() {
     /////////////////////////////////////////////////////
     // STEP 5 - Context menu - 2 of 2
     /*
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater = menuInflater
         inflater.inflate(R.menu.context_menu, menu)
@@ -376,7 +383,7 @@ class MainActivity : AppCompatActivity() {
                         return true
                     }
 
-                    // If the dragged item is of an unrecognized type, indicate this is not a valid target
+                    // If dragged item is of an unrecognized type, indicate that not a valid target
                     return false
                 }
 
@@ -411,13 +418,14 @@ class MainActivity : AppCompatActivity() {
                         // dinoModel.setDropText(item.text.toString())
 
                     } else if (event.clipDescription.hasMimeType("application/x-arc-uri-list")) {
-                        // If a file, read the first 200 characters and output them in a new TextView.
+                        // If a file, read the first 200 characters and output them in new TextView.
 
                         // Note the use of ContentResolver to resolve the ChromeOS content URI.
                         val contentUri = item.uri
                         val parcelFileDescriptor: ParcelFileDescriptor?
                         try {
-                            parcelFileDescriptor = contentResolver.openFileDescriptor(contentUri, "r")
+                            parcelFileDescriptor =
+                            contentResolver.openFileDescriptor(contentUri, "r")
                         } catch (e: FileNotFoundException) {
                             e.printStackTrace()
                             Log.e("OptimizedChromeOS", "Error receiving file: File not found.")
@@ -428,7 +436,7 @@ class MainActivity : AppCompatActivity() {
                             textTarget.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
                             textTarget.text = "Error: could not load file: " + contentUri.toString()
                             // In STEP 10, replace line above with this
-                            // dinoModel.setDropText("Error: could not load file: " + contentUri.toString())
+                            // dinoModel.setDropText("Error on drop: " + contentUri.toString())
                             return false
                         }
 
@@ -450,7 +458,11 @@ class MainActivity : AppCompatActivity() {
                         val contents = String(bytes)
 
                         val CHARS_TO_READ = 200
-                        val content_length = if (contents.length > CHARS_TO_READ) CHARS_TO_READ else 0
+                        val content_length =
+                            if (contents.length > CHARS_TO_READ)
+                                CHARS_TO_READ
+                            else
+                                0
 
                         textTarget.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
                         textTarget.text = contents.substring(0, content_length)
@@ -463,7 +475,8 @@ class MainActivity : AppCompatActivity() {
                     return true
                 }
                 else -> {
-                    Log.d("OptimizedChromeOS", "Unknown action type received by DropTargetListener.")
+                    Log.d("OptimizedChromeOS",
+                        "Unknown action type received by DropTargetListener.")
                     return false
                 }
             }
@@ -481,12 +494,12 @@ class MainActivity : AppCompatActivity() {
             val thisTextView = v as TextView
             val dragContent = "Dragged Text: " + thisTextView.text
 
-            //Set the drag content and type
+            // Set the drag content and type
             val item = ClipData.Item(dragContent)
             val dragData = ClipData(dragContent, arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN), item)
 
-            //Set the visual look of the dragged object
-            //Can be extended and customized. We use the default here.
+            // Set the visual look of the dragged object
+            // Can be extended and customized. We use the default here.
             val dragShadow = View.DragShadowBuilder(v)
 
             // Starts the drag, note: global flag allows for cross-application drag
