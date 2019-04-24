@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     var dinosClicked = 0
     var messagesSent = 0
 
-    lateinit private var undoStack: ArrayDeque<Int>
-    lateinit private var redoStack: ArrayDeque<Int>
+    private var undoStack = ArrayDeque<Int>()
+    private var redoStack = ArrayDeque<Int>()
 
     private val UNDO_MESSAGE_SENT = 1
     private val UNDO_DINO_CLICKED = 2
@@ -92,6 +92,8 @@ class MainActivity : AppCompatActivity() {
         edit_message.nextFocusRightId = R.id.button_send
         button_send.nextFocusForwardId = R.id.image_dino_1
         button_send.nextFocusLeftId = R.id.edit_message
+        image_dino_2.nextFocusForwardId = R.id.image_dino_3
+        image_dino_3.nextFocusForwardId = R.id.image_dino_4
 
         // Adjust image highlighting
         image_dino_1.setBackgroundResource(R.drawable.box_border)
