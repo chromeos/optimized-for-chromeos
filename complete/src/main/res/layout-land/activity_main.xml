@@ -50,11 +50,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text=""
+            android:text="0"
             android:textAlignment="textEnd"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/text_dino_clicks_label"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/text_dinos_clicked"
@@ -62,11 +62,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text=""
+            android:text="0"
             android:textAlignment="textEnd"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/text_dino_clicks_label"
-            app:layout_constraintTop_toBottomOf="@+id/text_messages_sent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_messages_sent"/>
 
     <EditText
             android:id="@+id/edit_message"
