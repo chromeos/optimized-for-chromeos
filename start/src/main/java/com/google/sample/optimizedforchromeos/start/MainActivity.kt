@@ -528,11 +528,11 @@ class MainActivity : AppCompatActivity() {
 
                 when (lastAction) {
                     UNDO_MESSAGE_SENT -> {
-                        dinoModel.setMessagesSent(dinoModel.getMessagesSentInt - 1)
+                        dinoModel.setMessagesSent(dinoModel.getMessagesSentInt() - 1)
                     }
 
                     UNDO_DINO_CLICKED -> {
-                        dinoModel.setDinosClicked(dinoModel.getDinosClickedInt - 1)
+                        dinoModel.setDinosClicked(dinoModel.getDinosClickedInt() - 1)
                     }
 
                     else -> Log.d("OptimizedChromeOS", "Error on Ctrl-z: Unknown Action")

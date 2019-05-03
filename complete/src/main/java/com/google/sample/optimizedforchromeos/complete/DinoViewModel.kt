@@ -29,7 +29,6 @@ class DinoViewModel : ViewModel() {
     private val dinosClicked = MutableLiveData<Int>().apply { value = 0 }
     private val dropText = MutableLiveData<String>().apply { value = "Drop Things Here!" }
 
-
     fun getUndoStack(): ArrayDeque<Int> {
         return undoStack
     }
